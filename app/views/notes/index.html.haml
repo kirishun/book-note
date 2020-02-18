@@ -18,13 +18,22 @@
     .bookshelf-name
       = "#{current_user.name}さんの本棚"
     .notes
-      - current_user.notes.each do |note|
+      - @notes.each do |note|
         .note
-          = image_tag note.image.url, size: "200x250" if note.image.present?
+          = link_to note_path(note) do
+            = image_tag note.image.url, size: "200x250" if note.image.present?
+
 
 .post
   = link_to new_note_path do
     .post__text
       Write
       = icon('fas', 'pencil-alt', class: 'icon')
+
+.write-footer
+  .write-container
+    .write-title
+      = link_to root_path do
+        = icon('fas', 'book', class: 'mypage-icon')
+        Book Note!
   

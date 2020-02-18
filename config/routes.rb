@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   namespace :notes do
     resources :searches, only: :index
   end
-  resources :notes,only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :notes
   resources :users, only: [:edit, :update]
 end

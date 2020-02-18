@@ -1,16 +1,27 @@
-.contents
+.write-header
+  .write-container
+    .write-title
+      = link_to root_path do
+        = icon('fas', 'book', class: 'mypage-icon')
+        Book Note!
+
+.write-contents
   .container
     = form_for [@note] do |f|
-      %h2 ✏️読書ノートを編集する📖
-      = f.text_field :title, class: 'container__title', placeholder: '本のタイトルを入力してください'
-      = f.text_field :author, class: 'container__author', placeholder: '著者名を入力してください'
-      = f.text_field :date, class: 'container__date', placeholder: '読了日を入力してください(例:2020/01/01)'
-      = f.label :image, class: 'container__image' do
-        = f.file_field :image,class: 'container__image__file'
-        画像を投稿
-      = f.text_area :story, class: 'container__story', placeholder: 'あらすじor要約を入力してください'
-      = f.text_area :review, class: 'container__review', placeholder: '感想or学んだことを入力してください'
-      = f.submit '更新する', class: 'write-btn'
-  .back-toppage
-    = link_to root_path, class: 'back-toppage__btn' do
-      トップページへ戻る
+      .container__title
+        %h2 読書ノートを編集する
+      .container__text
+        = f.text_field :title, class: 'input-default', placeholder: '本のタイトルを入力してください'
+        = f.text_field :author, class: 'input-default', placeholder: '著者名を入力してください'
+        = f.text_field :date, class: 'input-default', placeholder: '読了日を入力してください(例:2020/01/01)'
+        = f.file_field :image,class: 'input-default'
+        = f.text_area :story, class: 'input-area', placeholder: 'あらすじor要約を入力してください'
+        = f.text_area :review, class: 'input-area', placeholder: '感想or学んだことを入力してください'
+        = f.submit '保存する', class: 'write-btn'
+        
+.write-footer
+  .write-container
+    .write-title
+      = link_to root_path do
+        = icon('fas', 'book', class: 'mypage-icon')
+        Book Note!

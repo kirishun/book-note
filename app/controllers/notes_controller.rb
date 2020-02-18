@@ -1,5 +1,7 @@
 class NotesController < ApplicationController
 
+  before_action :set_note, only: [:edit, :update, :show, :destroy]
+
   def index
     @notes = Note.where(user_id: current_user.id).order("created_at DESC")
   end
@@ -17,12 +19,13 @@ class NotesController < ApplicationController
     end
   end
 
+  def show
+  end
+
   def edit
-    @note = Note.find(params[:id])
   end
 
   def update
-    @note = Note.find(params[:id])
     if @note.update(note_params)
       redirect_to root_path
     else
@@ -31,13 +34,17 @@ class NotesController < ApplicationController
   end
 
   def destroy
-    note = Note.find(params[:id])
-    note.destroy
+    @note.destroy
   end
 
   private
+
   def note_params
     params.require(:note).permit(:title, :author, :date, :image, :story, :review).merge(user_id: current_user.id)
+  end
+
+  def set_note
+    @note = Note.find(params[:id])
   end
 
 end

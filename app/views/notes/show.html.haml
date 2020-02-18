@@ -1,8 +1,40 @@
-    .note__edit
-        = link_to "/notes/#{note.id}/edit", method: :get do
-          = icon('fas', 'pencil-alt', class: 'note-icon')
-          編集
-      .note__delete
-        = link_to "/notes/#{note.id}", method: :delete do
-          = icon('fas', 'eraser', class: 'note-icon')
-          削除
+.write-header
+  .write-container
+    .write-title
+      = link_to root_path do
+        = icon('fas', 'book', class: 'mypage-icon')
+        Book Note!
+
+.show-contents
+  .show-container
+    .show-image
+      = image_tag @note.image.url
+    .show-text
+      .left-title
+        タイトル
+      .right-text
+        = @note.title
+    .show-text
+      .left-title
+        著者名
+      .right-text
+        = @note.author
+    .show-text
+      .left-title
+        読了日
+      .right-text
+        = @note.date
+    .show-text
+      .edit-btn
+        = link_to 'ノートを編集する', edit_note_path(@note)
+    .show-text
+      .delete-btn
+        = link_to "/notes/#{@note.id}", method: :delete do
+          = icon('fas', 'trash', class: 'delete-icon')
+
+.write-footer
+  .write-container
+    .write-title
+      = link_to root_path do
+        = icon('fas', 'book', class: 'mypage-icon')
+        Book Note!
