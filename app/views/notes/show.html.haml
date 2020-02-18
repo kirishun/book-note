@@ -25,12 +25,10 @@
       .right-text
         = @note.date
     .show-text
-      .edit-btn
-        = link_to 'ノートを編集する', edit_note_path(@note)
+      = link_to 'ノートを編集する', edit_note_path(@note),class: "edit-btn"
     .show-text
-      .delete-btn
-        = link_to "/notes/#{@note.id}", method: :delete do
-          = icon('fas', 'trash', class: 'delete-icon')
+      = link_to "/notes/#{@note.id}", method: :delete, class: "delete-btn" do
+        = icon('fas', 'trash', class: 'delete-icon')
 
 .write-footer
   .write-container

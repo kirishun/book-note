@@ -1,20 +1,28 @@
-.account-page
-  .account-page__inner
-    .account-page__inner--left.account-page__header
-      %h2 👤アカウントの編集
-      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
-      = link_to "トップページに戻る", :back, class: 'btn'
-    .account-page__inner--right.user-form
-      = form_for(current_user) do |f|
-        .field
-          .field-label
-            = f.label :name
-          .field-input
-            = f.text_field :name, autofocus: true
-        .field
-          .field-label
-            = f.label :email
-          .field-input
-            = f.email_field :email
-        .actions
-          = f.submit "更新する", class: 'btn'
+.write-header
+  .write-container
+    .write-title
+      = link_to root_path do
+        = icon('fas', 'book', class: 'mypage-icon')
+        Book Note!
+
+.single-main
+  .login-single-container
+    .login-single-head
+      .user-newsession
+        = link_to destroy_user_session_path, method: :delete do
+          ログアウト
+    = form_for(current_user,class: "login-single-innner") do |f|
+      .login-single-content
+        .form-group
+          = f.text_field :name, autofocus: true, placeholder: "ニックネーム",required: "required", class: 'login-input-default'
+        .form-group
+          = f.text_field :email, autofocus: true, placeholder: "メールアドレス",required: "required", class: 'login-input-default'
+        .form-group
+          = f.submit "更新する", class: "user-login"
+
+.write-footer
+  .write-container
+    .write-title
+      = link_to root_path do
+        = icon('fas', 'book', class: 'mypage-icon')
+        Book Note!
