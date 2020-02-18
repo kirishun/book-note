@@ -1,34 +1,30 @@
 .header
-  .title-box
-  .name-box
-    = "#{current_user.name}さんの本棚"
-  .search-box
-    .post
-      = link_to new_note_path do
-        = icon('fas', 'pencil-alt', class: 'icon')
-    -# .search
-    -#   = form_with(url: notes_searches_path, local: true, method: :get, class: "search-form") do |form| 
-    -#     = form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input"
-    -#     = form.submit "検索", class: "search-btn"
-    -#     = icon('fas', 'search', class: 'icon')
-    .mypage
-      = link_to edit_user_path(current_user) do
-        = icon('fas', 'user-edit', class: 'icon')
+  .header-container
+    .header-title
+      = link_to root_path do
+        = icon('fas', 'book', class: 'mypage-icon')
+        Book Note!
+    .header-box
+      .header-box__search
+        .search-form
+        .search-box
+          = icon('fas', 'search', class: 'search-icon')
+      .header-box__mypage
+        = link_to edit_user_path(current_user) do
+          = icon('fas', 'user', class: 'mypage-icon')
 
 .main
-  - current_user.notes.each do |note|
-    .note
-      = image_tag note.image.url, class: 'note__image' if note.image.present?
-      .note__edit
-        = link_to "/notes/#{note.id}/edit", method: :get do
-          = icon('fas', 'pencil-alt', class: 'note-icon')
-          編集
-      .note__delete
-        = link_to "/notes/#{note.id}", method: :delete do
-          = icon('fas', 'eraser', class: 'note-icon')
-          削除
+  .main-container
+    .bookshelf-name
+      = "#{current_user.name}さんの本棚"
+    .notes
+      - current_user.notes.each do |note|
+        .note
+          = image_tag note.image.url, size: "200x250" if note.image.present?
 
-.footer
-
-
+.post
+  = link_to new_note_path do
+    .post__text
+      Write
+      = icon('fas', 'pencil-alt', class: 'icon')
   

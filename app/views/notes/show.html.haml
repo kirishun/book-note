@@ -1,0 +1,8 @@
+    .note__edit
+        = link_to "/notes/#{note.id}/edit", method: :get do
+          = icon('fas', 'pencil-alt', class: 'note-icon')
+          編集
+      .note__delete
+        = link_to "/notes/#{note.id}", method: :delete do
+          = icon('fas', 'eraser', class: 'note-icon')
+          削除
