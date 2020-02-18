@@ -1,0 +1,34 @@
+.wrapper
+
+  .header
+    .header-content
+      .left-box
+        .name
+          = "📗#{current_user.name}さんの本棚📕"
+      .right-box
+        .post
+          = link_to new_note_path do
+            = icon('fas', 'pencil-alt', class: 'icon')
+        -# .search
+        -#   = form_with(url: notes_searches_path, local: true, method: :get, class: "search-form") do |form| 
+        -#     = form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input"
+        -#     = form.submit "検索", class: "search-btn"
+        -#     = icon('fas', 'search', class: 'icon')
+        .mypage
+          = link_to edit_user_path(current_user) do
+            = icon('fas', 'user-edit', class: 'icon')
+
+  .main
+    - current_user.notes.each do |note|
+      .note
+        = image_tag note.image.url, class: 'note__image' if note.image.present?
+        .note__edit
+          = link_to "/notes/#{note.id}/edit", method: :get do
+            = icon('fas', 'pencil-alt', class: 'note-icon')
+          .edit-text
+            編集
+        .note__delete
+          = link_to "/notes/#{note.id}", method: :delete do
+            = icon('fas', 'eraser', class: 'note-icon')
+          .delete-text
+            削除
