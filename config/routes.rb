@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'notes#index'
-  namespace :notes do
-    resources :searches, only: :index
+
+  resources :notes do
+    collection do
+      get 'search'
+    end
   end
-  resources :notes
+
   resources :users, only: [:edit, :update]
+
 end

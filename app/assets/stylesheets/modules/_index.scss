@@ -22,18 +22,23 @@
       padding-top: 15px;
       &__search {
         padding-left: 50px;
-        display: flex;
-        .search-form {
-          width: 500px;
-          height: 40px;
-          background-color: #ffa500;
-        }
-        .search-box {
-          width: 30px;
-          .search-icon {
-            font-size: 40px;
-            padding-left: 10px;
-            color: #ffa500;
+        form {
+          display: flex;
+          .search-form {
+            width: 400px;
+            height: 40px;
+            display: flex;
+          }
+          .search-box {
+            width: 50px;
+            height: 43px;
+            margin-left: 10px;
+            background-color:#ffa500;
+            color: white;
+            text-align: center;
+            i {
+              font-size: 25px;
+            }
           }
         }
       }
@@ -58,7 +63,7 @@
 
 .main {
   background-color: #f8f8f8;
-  height: 80vh;
+  height: 100%;
   .main-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -67,7 +72,9 @@
       text-align: center;
       font-size: 30px;
       padding-top: 20px;
-      border-bottom: 1px solid #f3f3f3;
+      margin-left: 200px;
+      margin-right: 200px;
+      border-bottom: 1px solid #ffa500;
     }
     .notes {
       display: flex;

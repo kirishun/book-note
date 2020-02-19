@@ -4,6 +4,7 @@ class NotesController < ApplicationController
 
   def index
     @notes = Note.where(user_id: current_user.id).order("created_at DESC")
+    
   end
 
   def new
@@ -37,6 +38,10 @@ class NotesController < ApplicationController
     @note.destroy
   end
 
+  def search
+    @notes = Note.search(params[:keyword]).where(user_id: current_user.id).order("created_at DESC")
+  end
+
   private
 
   def note_params
@@ -46,5 +51,7 @@ class NotesController < ApplicationController
   def set_note
     @note = Note.find(params[:id])
   end
+
+  
 
 end
