@@ -20,7 +20,7 @@
   background-color: #f8f8f8;
   .container {
     max-width: 800px;
-    height: 770px;
+    height: 100%;
     margin: 0 auto;
     background-color:white;
     &__title {
@@ -35,23 +35,26 @@
       }
     }
     &__text {
-      padding-left: 30px;
-      padding-right: 30px;
+      padding: 0 30px 30px 30px;
+      label {
+        display: block;
+        margin-top: 30px;
+      }
       .input-default{
         width: 100%;
-        margin: 20px 0 0;
+        margin: 0 auto;
         height: 48px;
         border-radius: 4px;
         border: 1px solid #ccc;
         background: #fff;
         line-height: 1.5;
         font-size: 16px;
-        padding: 10px 16px 8px;
+        padding: 2px 16px 8px;
         box-sizing: border-box;
       }
       .input-area {
         width: 100%;
-        margin: 8px 0 0;
+        margin: 0 auto;
         height: 144px;
         border-radius: 4px;
         border: 1px solid #ccc;

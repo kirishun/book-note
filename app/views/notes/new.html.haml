@@ -11,12 +11,27 @@
       .container__title
         %h2 読書ノートを書く
       .container__text
+        = f.label :タイトル
         = f.text_field :title, class: 'input-default', placeholder: '本のタイトルを入力してください'
+        = f.label :著者名
         = f.text_field :author, class: 'input-default', placeholder: '著者名を入力してください'
+        = f.label :読了日
         = f.text_field :date, class: 'input-default', placeholder: '読了日を入力してください(例:2020/01/01)'
-        = f.file_field :image,class: 'input-default'
+        = f.label :本の画像
+        - if @note.image.present?
+          = image_tag @note.image.url, id: :img_prev,size: "100x150"
+        - else
+          = image_tag "NoImage.png", id: :img_prev,size: "100x150"
+        = f.file_field :image,class: 'image-default',id: :note_img
+        = f.label :あらすじ・要約
         = f.text_area :story, class: 'input-area', placeholder: 'あらすじor要約を入力してください'
+        = f.label :感想・学び
         = f.text_area :review, class: 'input-area', placeholder: '感想or学んだことを入力してください'
         = f.submit '保存する', class: 'write-btn'
         
-.write-header
+.write-footer
+  .write-container
+    .write-title
+      = link_to root_path do
+        = icon('fas', 'book', class: 'mypage-icon')
+        Book Note!
