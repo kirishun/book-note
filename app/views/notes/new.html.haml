@@ -1,9 +1,4 @@
-.write-header
-  .write-container
-    .write-title
-      = link_to root_path do
-        = icon('fas', 'book', class: 'mypage-icon')
-        Book Note!
+= render "/shared/note-header"
 
 .write-contents
   .container
@@ -29,9 +24,4 @@
         = f.text_area :review, class: 'input-area', placeholder: '感想or学んだことを入力してください'
         = f.submit '保存する', class: 'write-btn'
         
-.write-footer
-  .write-container
-    .write-title
-      = link_to root_path do
-        = icon('fas', 'book', class: 'mypage-icon')
-        Book Note!
+= render "/shared/note-footer"

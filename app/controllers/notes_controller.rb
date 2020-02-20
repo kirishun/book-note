@@ -30,7 +30,7 @@ class NotesController < ApplicationController
     if @note.update(note_params)
       redirect_to root_path
     else
-      render action: :edit
+      redirect_to edit_note_path
     end
   end
 

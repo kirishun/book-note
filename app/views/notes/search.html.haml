@@ -31,11 +31,6 @@
       Write
       = icon('fas', 'pencil-alt', class: 'icon')
 
-.write-footer
-  .write-container
-    .write-title
-      = link_to root_path do
-        = icon('fas', 'book', class: 'mypage-icon')
-        Book Note!
+= render "/shared/note-footer"
       
   

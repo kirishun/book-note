@@ -1,9 +1,4 @@
-.write-header
-  .write-container
-    .write-title
-      = link_to root_path do
-        = icon('fas', 'book', class: 'mypage-icon')
-        Book Note!
+= render "/shared/note-header"
 
 .single-main
   .login-single-container
@@ -23,9 +18,4 @@
         .form-group
           = f.submit "ログイン", class: "user-login"
 
-.write-footer
-  .write-container
-    .write-title
-      = link_to root_path do
-        = icon('fas', 'book', class: 'mypage-icon')
-        Book Note!
+= render "/shared/note-footer"
