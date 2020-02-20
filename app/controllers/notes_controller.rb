@@ -35,7 +35,11 @@ class NotesController < ApplicationController
   end
 
   def destroy
-    @note.destroy
+    if @note.destroy
+      redirect_to root_path
+    else
+      redirect_to edit_note_path
+    end
   end
 
   def search
