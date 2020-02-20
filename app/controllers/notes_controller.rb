@@ -40,6 +40,10 @@ class NotesController < ApplicationController
 
   def search
     @notes = Note.search(params[:keyword]).where(user_id: current_user.id).order("created_at DESC")
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   private

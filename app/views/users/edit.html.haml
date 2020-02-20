@@ -8,14 +8,16 @@
 .single-main
   .login-single-container
     .login-single-head
-      .user-newsession
-        = link_to destroy_user_session_path, method: :delete do
-          ログアウト
+      = link_to destroy_user_session_path, method: :delete,class: "user-newsession" do
+        ログアウト
     = form_for(current_user,class: "login-single-innner") do |f|
       .login-single-content
+        %h2 ユーザー情報を編集
         .form-group
+          = f.label :ニックネーム
           = f.text_field :name, autofocus: true, placeholder: "ニックネーム",required: "required", class: 'login-input-default'
         .form-group
+          = f.label :メールアドレス
           = f.text_field :email, autofocus: true, placeholder: "メールアドレス",required: "required", class: 'login-input-default'
         .form-group
           = f.submit "更新する", class: "user-login"
