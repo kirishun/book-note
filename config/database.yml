@@ -50,5 +50,8 @@ test:
 production:
   <<: *default
   database: book-note_production
-  username: book-note
+  username: root
   password: <%= ENV['BOOK-NOTE_DATABASE_PASSWORD'] %>
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
