@@ -6,6 +6,13 @@ Book Note!
 Overview
 自分だけの読書ノートが作れるアプリ
 
+Heroku URL
+https://book-note.herokuapp.com
+
+testアカウント
+email:    test@gmail.com
+password: testtest
+
 ## Description
 
 ユーザーログインした後に、新規でノートを書くとマイ本棚に登録した画像が反映されます。
