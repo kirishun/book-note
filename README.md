@@ -1,15 +1,14 @@
-# README
 
-Name
+## Name
 Book Note!
 
-Overview
+## Overview
 自分だけの読書ノートが作れるアプリ
 
-Heroku URL
+## Heroku URL
 https://book-note.herokuapp.com
 
-testアカウント
+## testアカウント
 email:    test@gmail.com
 password: testtest
 
