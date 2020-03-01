@@ -82,3 +82,5 @@ gem 'mini_magick'
 gem 'ransack'
 
 gem 'jquery-rails'
+
+gem 'fog-aws'
